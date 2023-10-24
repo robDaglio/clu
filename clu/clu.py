@@ -83,7 +83,7 @@ class CLU(logging.Logger):
     def __str__(self):
         return self.__dict__
 
-    def get_clu(self):
+    def get_logger(self):
         return self.log
 
     def validate_log_level(self):
@@ -117,14 +117,4 @@ class CLU(logging.Logger):
             handler.addFilter(SystemLogFilter())
 
 
-if __name__ == '__main__':
-    log = CLU(
-        name=__name__,
-        log_level='sam',
-        log_to_file=True
-    ).get_clu()
 
-    import json
-
-    log.info('this is an info message', extra={'id': '123'})
-    log.info(log.__dict__)
